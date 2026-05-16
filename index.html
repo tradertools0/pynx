@@ -3,24 +3,36 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>BLANK IDEA — Intelligent Trading Systems</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
-    --bg:#040816;
-    --bg2:#0b1228;
-    --panel:rgba(255,255,255,0.04);
-    --border:rgba(110,160,255,0.14);
-    --blue:#6ea2ff;
-    --blue2:#3d7dff;
-    --text:#edf3ff;
-    --muted:#9aa8c7;
+
+    --bg:#140202;
+    --bg2:#240404;
+
+    --panel:rgba(255,245,240,0.045);
+
+    --border:rgba(255,255,255,0.07);
+
+    --red:#ff5a36;
+    --red2:#d93a1a;
+
+    --text:#fff5ee;
+    --muted:#f0c8bf;
+
+    --glow:rgba(255,90,54,0.14);
+
 }
+
+/* RESET */
 
 *{
     margin:0;
@@ -29,174 +41,415 @@
     scroll-behavior:smooth;
 }
 
+/* BODY */
+
 body{
+
     font-family:'Inter',sans-serif;
+
     background:
-        radial-gradient(circle at top left, rgba(30,70,180,0.18), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(30,70,180,0.12), transparent 22%),
-        linear-gradient(180deg,#050816 0%,#071020 100%);
+    radial-gradient(circle at top left, rgba(255,90,54,0.16), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(255,90,54,0.08), transparent 24%),
+    linear-gradient(180deg,#140202 0%, #220303 45%, #100101 100%);
+
     color:var(--text);
+
     overflow-x:hidden;
+
+    position:relative;
+}
+
+/* GRID OVERLAY */
+
+body::before{
+
+    content:'';
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+
+    background-size:60px 60px;
+
+    opacity:0.28;
+
+    z-index:-20;
+}
+
+/* TRADING TEXTURE */
+
+body::after{
+
+    content:'';
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.02), transparent 20%),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.015), transparent 20%);
+
+    z-index:-19;
 }
 
 /* GRID */
 
 .grid{
+
     position:fixed;
+
     inset:0;
+
     background-image:
-        linear-gradient(rgba(110,160,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(110,160,255,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+
     background-size:42px 42px;
-    z-index:-5;
-    animation:gridMove 22s linear infinite;
+
+    z-index:-10;
+
+    animation:gridMove 24s linear infinite;
 }
 
 @keyframes gridMove{
-    from{ transform:translateY(0px); }
-    to{ transform:translateY(42px); }
+
+    from{
+        transform:translateY(0px);
+    }
+
+    to{
+        transform:translateY(42px);
+    }
 }
+
+/* GLOW */
 
 .glow{
+
     position:fixed;
-    width:420px;
-    height:420px;
+
+    width:520px;
+    height:520px;
+
     border-radius:50%;
-    filter:blur(130px);
-    background:rgba(80,130,255,0.14);
-    top:-80px;
+
+    filter:blur(140px);
+
+    background:rgba(255,90,54,0.18);
+
+    top:-140px;
     right:-120px;
-    z-index:-4;
+
+    z-index:-9;
 }
 
-/* NAV */
+/* NAVBAR */
 
 nav{
+
     width:100%;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     padding:28px 70px;
+
     position:sticky;
+
     top:0;
+
     z-index:50;
-    backdrop-filter:blur(16px);
-    background:rgba(4,8,22,0.45);
-    border-bottom:1px solid rgba(255,255,255,0.04);
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(18,2,2,0.58);
+
+    border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
+/* LOGO */
+
 .logo{
+
     font-family:'Orbitron',sans-serif;
+
     font-size:30px;
+
     font-weight:800;
+
     letter-spacing:10px;
-    color:#fff;
+
+    color:var(--text);
+
+    text-shadow:
+    0 0 24px rgba(255,90,54,0.12);
 }
 
 .logo span{
-    color:var(--blue);
+    color:var(--red);
 }
 
+/* NAV LINKS */
+
 nav ul{
+
     display:flex;
+
     list-style:none;
-    gap:32px;
+
+    gap:34px;
 }
 
 nav a{
+
     text-decoration:none;
+
     color:var(--muted);
+
     font-size:14px;
-    transition:0.25s ease;
+
+    transition:0.3s ease;
+
+    position:relative;
+}
+
+nav a::after{
+
+    content:'';
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0%;
+
+    height:1px;
+
+    background:var(--red);
+
+    transition:0.3s ease;
 }
 
 nav a:hover{
+
     color:#fff;
+}
+
+nav a:hover::after{
+
+    width:100%;
 }
 
 /* HERO */
 
 .hero{
+
     min-height:100vh;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
+
     text-align:center;
+
     padding:120px 24px 90px;
+
     position:relative;
 }
 
+/* HERO GLOW */
+
 .hero::before{
+
     content:'';
+
     position:absolute;
-    width:620px;
-    height:620px;
+
+    width:700px;
+    height:700px;
+
     border-radius:50%;
-    background:radial-gradient(circle, rgba(70,120,255,0.12), transparent 70%);
+
+    background:
+    radial-gradient(circle, rgba(255,90,54,0.12), transparent 72%);
+
     z-index:-1;
 }
 
+/* TAG */
+
 .tag{
-    padding:10px 18px;
-    border:1px solid rgba(120,160,255,0.14);
+
+    padding:11px 22px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
     border-radius:40px;
-    margin-bottom:28px;
-    color:var(--blue);
+
+    margin-bottom:30px;
+
+    color:#ffd6cd;
+
     background:rgba(255,255,255,0.03);
-    font-size:13px;
-    letter-spacing:2px;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    backdrop-filter:blur(12px);
 }
+
+/* HERO TITLE */
 
 .hero h1{
+
     font-family:'Orbitron',sans-serif;
+
     font-size:110px;
+
     letter-spacing:16px;
+
     margin-bottom:20px;
-    text-shadow:0 0 30px rgba(110,160,255,0.16);
+
+    color:var(--text);
+
+    text-shadow:
+    0 0 26px rgba(255,90,54,0.16),
+    0 0 60px rgba(255,90,54,0.06);
 }
+
+/* HERO SUBTITLE */
 
 .hero h2{
+
     font-family:'Orbitron',sans-serif;
+
     font-size:24px;
+
     letter-spacing:8px;
-    color:var(--blue);
-    margin-bottom:30px;
+
+    color:#ffb8aa;
+
+    margin-bottom:34px;
 }
 
+/* HERO TEXT */
+
 .hero p{
-    max-width:900px;
+
+    max-width:920px;
+
     color:var(--muted);
+
     font-size:18px;
+
     line-height:1.9;
 }
 
+/* HERO BUTTONS */
+
 .hero-buttons{
-    margin-top:40px;
+
+    margin-top:42px;
+
     display:flex;
+
     gap:18px;
+
     flex-wrap:wrap;
+
     justify-content:center;
 }
 
+/* BUTTONS */
+
 .btn{
-    padding:16px 28px;
-    border-radius:14px;
-    border:1px solid rgba(110,160,255,0.15);
+
+    padding:16px 30px;
+
+    border-radius:16px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
     text-decoration:none;
+
     color:#fff;
-    transition:0.3s ease;
-    background:rgba(255,255,255,0.03);
+
+    transition:0.35s ease;
+
+    background:rgba(255,255,255,0.035);
+
+    backdrop-filter:blur(12px);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.btn::before{
+
+    content:'';
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.06) 50%,
+    transparent 100%
+    );
+
+    transform:translateX(-100%);
+
+    transition:0.6s ease;
+}
+
+.btn:hover::before{
+
+    transform:translateX(100%);
 }
 
 .btn:hover{
-    transform:translateY(-4px);
-    border-color:rgba(110,160,255,0.35);
-    box-shadow:0 0 24px rgba(110,160,255,0.12);
+
+    transform:translateY(-5px);
+
+    border-color:rgba(255,90,54,0.28);
+
+    box-shadow:
+    0 0 30px rgba(255,90,54,0.14);
 }
 
+/* PRIMARY BUTTON */
+
 .primary{
-    background:linear-gradient(135deg,var(--blue2),var(--blue));
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--red2),
+    var(--red)
+    );
+
     color:#fff;
 }
 
@@ -206,77 +459,157 @@ section{
     padding:110px 70px;
 }
 
+/* SECTION TITLE */
+
 .section-title{
+
     text-align:center;
-    margin-bottom:60px;
+
+    margin-bottom:70px;
 }
 
 .section-title h2{
+
     font-family:'Orbitron',sans-serif;
-    letter-spacing:6px;
-    font-size:32px;
+
+    letter-spacing:7px;
+
+    font-size:34px;
+
     margin-bottom:16px;
+
+    color:var(--text);
 }
 
 .section-title p{
+
     color:var(--muted);
+
     max-width:760px;
+
     margin:auto;
-    line-height:1.8;
+
+    line-height:1.9;
 }
 
 /* ABOUT */
 
 .about{
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:34px;
 }
 
+/* ABOUT CARD */
+
 .about-card{
-    background:var(--panel);
+
+    background:
+    linear-gradient(
+    180deg,
+    rgba(255,255,255,0.045),
+    rgba(255,255,255,0.02)
+    );
+
     border:1px solid var(--border);
-    padding:38px;
-    border-radius:24px;
-    backdrop-filter:blur(12px);
+
+    padding:40px;
+
+    border-radius:28px;
+
+    backdrop-filter:blur(16px);
+
+    transition:0.35s ease;
+}
+
+.about-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(255,90,54,0.20);
+
+    box-shadow:
+    0 0 34px rgba(255,90,54,0.08);
 }
 
 .about-card h3{
+
     font-family:'Orbitron',sans-serif;
-    color:var(--blue);
-    margin-bottom:22px;
+
+    color:#ffb29f;
+
+    margin-bottom:24px;
+
     letter-spacing:3px;
 }
 
 .about-card p{
+
     color:var(--muted);
+
     line-height:1.9;
 }
 
 /* SERVICES */
 
 .cards{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
     gap:28px;
 }
 
+/* CARD */
+
 .card{
+
     position:relative;
+
     overflow:hidden;
-    padding:36px;
-    border-radius:22px;
-    background:rgba(255,255,255,0.035);
-    border:1px solid rgba(110,160,255,0.10);
-    transition:0.35s ease;
+
+    padding:38px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+    180deg,
+    rgba(255,255,255,0.045),
+    rgba(255,255,255,0.02)
+    );
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    transition:0.4s ease;
+
+    backdrop-filter:blur(16px);
 }
 
+/* CARD LIGHT */
+
 .card::before{
+
     content:'';
+
     position:absolute;
+
     inset:0;
-    background:linear-gradient(135deg, rgba(110,160,255,0.08), transparent);
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(255,90,54,0.10),
+    transparent
+    );
+
     opacity:0;
+
     transition:0.35s ease;
 }
 
@@ -284,94 +617,201 @@ section{
     opacity:1;
 }
 
-.card:hover{
-    transform:translateY(-10px);
-    border-color:rgba(110,160,255,0.28);
-    box-shadow:0 0 30px rgba(110,160,255,0.10);
+/* CARD SWEEP */
+
+.card::after{
+
+    content:'';
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.04) 50%,
+    transparent 100%
+    );
+
+    opacity:0;
+
+    transition:0.5s ease;
 }
 
+.card:hover::after{
+    opacity:1;
+}
+
+/* CARD HOVER */
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(255,90,54,0.24);
+
+    box-shadow:
+    0 0 42px rgba(255,90,54,0.10);
+}
+
+/* CARD TITLE */
+
 .card h3{
+
     font-family:'Orbitron',sans-serif;
-    color:var(--blue);
+
+    color:#ffb8aa;
+
     margin-bottom:18px;
+
     letter-spacing:2px;
 }
 
+/* CARD TEXT */
+
 .card p{
+
     color:var(--muted);
-    line-height:1.8;
+
+    line-height:1.9;
 }
 
 /* STATS */
 
 .stats{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
     gap:24px;
 }
 
+/* STAT */
+
 .stat{
+
     text-align:center;
-    padding:38px 24px;
-    border-radius:22px;
+
+    padding:42px 24px;
+
+    border-radius:28px;
+
     background:rgba(255,255,255,0.03);
-    border:1px solid rgba(110,160,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    backdrop-filter:blur(12px);
+
+    transition:0.35s ease;
+}
+
+.stat:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(255,90,54,0.22);
+
+    box-shadow:
+    0 0 30px rgba(255,90,54,0.08);
 }
 
 .stat h3{
-    font-size:42px;
-    margin-bottom:10px;
+
+    font-size:44px;
+
+    margin-bottom:12px;
+
     font-family:'Orbitron',sans-serif;
+
     color:#fff;
 }
 
 .stat p{
+
     color:var(--muted);
 }
 
 /* CONTACT */
 
 .contact{
+
     text-align:center;
+
     padding-bottom:130px;
 }
 
+/* CONTACT BOX */
+
 .contact-box{
+
     max-width:850px;
+
     margin:auto;
-    padding:50px;
-    border-radius:26px;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(110,160,255,0.12);
+
+    padding:54px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+    180deg,
+    rgba(255,255,255,0.045),
+    rgba(255,255,255,0.02)
+    );
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    backdrop-filter:blur(18px);
 }
 
 .contact-box h3{
+
     font-family:'Orbitron',sans-serif;
+
     letter-spacing:4px;
+
     margin-bottom:24px;
 }
 
 .contact-box p{
+
     color:var(--muted);
+
     line-height:1.9;
 }
 
 .contact-links{
-    margin-top:34px;
+
+    margin-top:36px;
+
     display:flex;
+
     justify-content:center;
+
     gap:18px;
+
     flex-wrap:wrap;
 }
 
 /* FOOTER */
 
 footer{
-    border-top:1px solid rgba(255,255,255,0.05);
+
+    border-top:1px solid rgba(255,255,255,0.06);
+
     text-align:center;
+
     padding:42px 20px;
-    color:rgba(255,255,255,0.45);
-    line-height:1.8;
+
+    color:rgba(255,245,240,0.55);
+
+    line-height:1.9;
+
+    background:rgba(0,0,0,0.10);
 }
 
 /* MOBILE */
@@ -418,9 +858,13 @@ footer{
 <div class="grid"></div>
 <div class="glow"></div>
 
+<!-- NAVBAR -->
+
 <nav>
 
-<div class="logo">B<span>I</span></div>
+<div class="logo">
+B<span>I</span>
+</div>
 
 <ul>
     <li><a href="#about">About</a></li>
@@ -431,134 +875,207 @@ footer{
 
 </nav>
 
+<!-- HERO -->
+
 <section class="hero">
 
-<div class="tag">ENGINEERED FOR MODERN MARKETS</div>
+<div class="tag">
+ENGINEERED FOR MODERN MARKETS
+</div>
 
 <h1>BLANK IDEA</h1>
 
-<h2>IDEA • EXECUTION • SYSTEMS</h2>
+<h2>
+IDEA • EXECUTION • SYSTEMS
+</h2>
 
 <p>
-BLANK IDEA is focused on engineering intelligent trading systems, execution infrastructure,
-automation environments, and custom strategy implementation for modern financial markets.
-Transforming concepts into executable systems built for real-world market behavior.
+BLANK IDEA is focused on engineering intelligent trading systems,
+execution infrastructure, automation environments,
+and custom strategy implementation for modern financial markets.
+
+Transforming concepts into executable systems built
+for real-world market behavior.
 </p>
 
 <div class="hero-buttons">
-    <a href="#services" class="btn primary">Explore Systems</a>
-    <a href="#contact" class="btn">Connect</a>
+
+    <a href="#services" class="btn primary">
+    Explore Systems
+    </a>
+
+    <a href="#contact" class="btn">
+    Connect
+    </a>
+
 </div>
 
 </section>
 
+<!-- ABOUT -->
+
 <section id="about">
 
 <div class="section-title">
+
     <h2>ABOUT US</h2>
+
     <p>
-    BLANK IDEA operates as a system engineering and automation-focused environment built around trading infrastructure,
-    intelligent execution behavior, risk architecture, and strategy implementation.
+    BLANK IDEA operates as a system engineering and automation-focused environment
+    built around trading infrastructure, intelligent execution behavior,
+    risk architecture, and strategy implementation.
     </p>
+
 </div>
 
 <div class="about">
 
 <div class="about-card">
+
     <h3>ENGINEERING APPROACH</h3>
 
     <p>
-    Every system is developed with focus on execution realism, broker adaptation,
-    operational stability, and market-aware behavior. The objective is not just
-    automation — but engineered execution capable of functioning in live environments.
+    Every system is developed with focus on execution realism,
+    broker adaptation, operational stability,
+    and market-aware behavior.
+
+    The objective is not just automation —
+    but engineered execution capable of functioning
+    in live environments.
     </p>
+
 </div>
 
 <div class="about-card">
+
     <h3>CORE DIRECTION</h3>
 
     <p>
-    Focused on MT5 infrastructure, custom indicators, strategy transformation,
-    execution logic, risk containment systems, and scalable automation frameworks
-    for Forex, Crypto, and modern digital market ecosystems.
+    Focused on MT5 infrastructure,
+    custom indicators,
+    strategy transformation,
+    execution logic,
+    risk containment systems,
+    and scalable automation frameworks
+    for Forex, Crypto,
+    and modern digital market ecosystems.
     </p>
+
 </div>
 
 </div>
 
 </section>
 
+<!-- SERVICES -->
+
 <section id="services">
 
 <div class="section-title">
+
     <h2>SYSTEMS & SERVICES</h2>
+
     <p>
-    Specialized engineering solutions designed around automation, execution logic,
+    Specialized engineering solutions designed around automation,
+    execution logic,
     and intelligent trading infrastructure.
     </p>
+
 </div>
 
 <div class="cards">
 
 <div class="card">
+
     <h3>MT5 EA DEVELOPMENT</h3>
+
     <p>
     Custom Expert Advisor systems engineered for execution stability,
-    automation behavior, and real-market operational handling.
+    automation behavior,
+    and real-market operational handling.
     </p>
+
 </div>
 
 <div class="card">
+
     <h3>STRATEGY AUTOMATION</h3>
+
     <p>
-    Transforming trading concepts and manual workflows into executable
-    automated systems with structured implementation.
+    Transforming trading concepts and manual workflows
+    into executable automated systems
+    with structured implementation.
     </p>
+
 </div>
 
 <div class="card">
+
     <h3>INDICATOR ENGINEERING</h3>
+
     <p>
-    Development of custom indicators, visualization tools, and
-    analytical market structure systems.
+    Development of custom indicators,
+    visualization tools,
+    and analytical market structure systems.
     </p>
+
 </div>
 
 <div class="card">
+
     <h3>EXECUTION SYSTEMS</h3>
+
     <p>
-    Engineering intelligent execution environments with adaptive behavior,
-    spread handling, and broker-aware operational logic.
+    Engineering intelligent execution environments
+    with adaptive behavior,
+    spread handling,
+    and broker-aware operational logic.
     </p>
+
 </div>
 
 <div class="card">
+
     <h3>RISK INFRASTRUCTURE</h3>
+
     <p>
-    Structured drawdown handling, exposure management,
+    Structured drawdown handling,
+    exposure management,
     and volatility-aware risk architecture.
     </p>
+
 </div>
 
 <div class="card">
+
     <h3>FINTECH AUTOMATION</h3>
+
     <p>
-    Building intelligent automation systems and execution-focused
-    digital infrastructure for modern market environments.
+    Building intelligent automation systems
+    and execution-focused digital infrastructure
+    for modern market environments.
     </p>
+
 </div>
 
 </div>
 
 </section>
 
+<!-- RESEARCH -->
+
 <section id="research">
 
 <div class="section-title">
+
     <h2>FOCUS METRICS</h2>
+
     <p>
-    Built around execution quality, infrastructure reliability, and engineered market behavior.
+    Built around execution quality,
+    infrastructure reliability,
+    and engineered market behavior.
     </p>
+
 </div>
 
 <div class="stats">
@@ -587,34 +1104,56 @@ Transforming concepts into executable systems built for real-world market behavi
 
 </section>
 
+<!-- CONTACT -->
+
 <section class="contact" id="contact">
 
 <div class="contact-box">
 
-<h3>CONNECT WITH BLANK IDEA</h3>
+<h3>
+CONNECT WITH BLANK IDEA
+</h3>
 
 <p>
-Interested in custom trading systems, execution infrastructure,
-automation environments, or intelligent market engineering solutions.
+Interested in custom trading systems,
+execution infrastructure,
+automation environments,
+or intelligent market engineering solutions.
 </p>
 
 <div class="contact-links">
-    <a href="#" class="btn primary">WhatsApp</a>
-    <a href="#" class="btn">Telegram</a>
-    <a href="#" class="btn">GitHub</a>
+
+    <a href="#" class="btn primary">
+    WhatsApp
+    </a>
+
+    <a href="#" class="btn">
+    Telegram
+    </a>
+
+    <a href="#" class="btn">
+    GitHub
+    </a>
+
 </div>
 
 </div>
 
 </section>
 
+<!-- FOOTER -->
+
 <footer>
 
 BLANK IDEA
 <br>
+
 IDEA • EXECUTION • SYSTEMS
+
 <br><br>
-Engineering intelligent systems for modern financial markets.
+
+Engineering intelligent systems
+for modern financial markets.
 
 </footer>
 
