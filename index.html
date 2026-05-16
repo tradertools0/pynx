@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -13,23 +15,25 @@
 
 <style>
 
+/* ROOT */
+
 :root{
 
-    --bg:#140202;
-    --bg2:#240404;
+    --bg:#7a0000;
+    --bg2:#b30000;
 
-    --panel:rgba(255,245,240,0.045);
+    --panel:rgba(255,245,240,0.05);
 
-    --border:rgba(255,255,255,0.07);
+    --border:rgba(255,255,255,0.08);
 
-    --red:#ff5a36;
-    --red2:#d93a1a;
+    --red:#ff3b1f;
+    --red2:#ff1400;
 
     --text:#fff5ee;
-    --muted:#f0c8bf;
 
-    --glow:rgba(255,90,54,0.14);
+    --muted:#ffd4ca;
 
+    --glow:rgba(255,50,20,0.22);
 }
 
 /* RESET */
@@ -48,9 +52,26 @@ body{
     font-family:'Inter',sans-serif;
 
     background:
-    radial-gradient(circle at top left, rgba(255,90,54,0.16), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(255,90,54,0.08), transparent 24%),
-    linear-gradient(180deg,#140202 0%, #220303 45%, #100101 100%);
+
+    radial-gradient(
+    circle at top left,
+    rgba(255,70,30,0.28),
+    transparent 26%
+    ),
+
+    radial-gradient(
+    circle at bottom right,
+    rgba(255,50,20,0.18),
+    transparent 24%
+    ),
+
+    linear-gradient(
+    180deg,
+    #7f0000 0%,
+    #b10000 38%,
+    #870000 70%,
+    #5c0000 100%
+    );
 
     color:var(--text);
 
@@ -72,17 +93,26 @@ body::before{
     pointer-events:none;
 
     background:
-    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+
+    linear-gradient(
+    rgba(255,255,255,0.018) 1px,
+    transparent 1px
+    ),
+
+    linear-gradient(
+    90deg,
+    rgba(255,255,255,0.018) 1px,
+    transparent 1px
+    );
 
     background-size:60px 60px;
 
-    opacity:0.28;
+    opacity:0.12;
 
     z-index:-20;
 }
 
-/* TRADING TEXTURE */
+/* TEXTURE */
 
 body::after{
 
@@ -95,8 +125,18 @@ body::after{
     pointer-events:none;
 
     background:
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.02), transparent 20%),
-    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.015), transparent 20%);
+
+    radial-gradient(
+    circle at 20% 20%,
+    rgba(255,255,255,0.02),
+    transparent 20%
+    ),
+
+    radial-gradient(
+    circle at 80% 80%,
+    rgba(255,255,255,0.015),
+    transparent 20%
+    );
 
     z-index:-19;
 }
@@ -110,8 +150,17 @@ body::after{
     inset:0;
 
     background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+
+    linear-gradient(
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px
+    ),
+
+    linear-gradient(
+    90deg,
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px
+    );
 
     background-size:42px 42px;
 
@@ -137,17 +186,17 @@ body::after{
 
     position:fixed;
 
-    width:520px;
-    height:520px;
+    width:700px;
+    height:700px;
 
     border-radius:50%;
 
-    filter:blur(140px);
+    filter:blur(160px);
 
-    background:rgba(255,90,54,0.18);
+    background:rgba(255,60,20,0.24);
 
-    top:-140px;
-    right:-120px;
+    top:-180px;
+    right:-140px;
 
     z-index:-9;
 }
@@ -174,7 +223,7 @@ nav{
 
     backdrop-filter:blur(18px);
 
-    background:rgba(18,2,2,0.58);
+    background:rgba(85,0,0,0.38);
 
     border-bottom:1px solid rgba(255,255,255,0.05);
 }
@@ -194,7 +243,7 @@ nav{
     color:var(--text);
 
     text-shadow:
-    0 0 24px rgba(255,90,54,0.12);
+    0 0 24px rgba(255,90,54,0.14);
 }
 
 .logo span{
@@ -282,13 +331,18 @@ nav a:hover::after{
 
     position:absolute;
 
-    width:700px;
-    height:700px;
+    width:800px;
+    height:800px;
 
     border-radius:50%;
 
     background:
-    radial-gradient(circle, rgba(255,90,54,0.12), transparent 72%);
+
+    radial-gradient(
+    circle,
+    rgba(255,90,54,0.16),
+    transparent 72%
+    );
 
     z-index:-1;
 }
@@ -305,9 +359,9 @@ nav a:hover::after{
 
     margin-bottom:30px;
 
-    color:#ffd6cd;
+    color:#ffe0d8;
 
-    background:rgba(255,255,255,0.03);
+    background:rgba(255,255,255,0.04);
 
     font-size:12px;
 
@@ -316,13 +370,13 @@ nav a:hover::after{
     backdrop-filter:blur(12px);
 }
 
-/* HERO TITLE */
+/* TITLE */
 
 .hero h1{
 
     font-family:'Orbitron',sans-serif;
 
-    font-size:110px;
+    font-size:120px;
 
     letter-spacing:16px;
 
@@ -331,11 +385,13 @@ nav a:hover::after{
     color:var(--text);
 
     text-shadow:
-    0 0 26px rgba(255,90,54,0.16),
-    0 0 60px rgba(255,90,54,0.06);
+
+    0 0 26px rgba(255,90,54,0.18),
+
+    0 0 70px rgba(255,90,54,0.08);
 }
 
-/* HERO SUBTITLE */
+/* SUBTITLE */
 
 .hero h2{
 
@@ -345,16 +401,16 @@ nav a:hover::after{
 
     letter-spacing:8px;
 
-    color:#ffb8aa;
+    color:#ffd1c5;
 
     margin-bottom:34px;
 }
 
-/* HERO TEXT */
+/* TEXT */
 
 .hero p{
 
-    max-width:920px;
+    max-width:950px;
 
     color:var(--muted);
 
@@ -363,7 +419,7 @@ nav a:hover::after{
     line-height:1.9;
 }
 
-/* HERO BUTTONS */
+/* BUTTONS */
 
 .hero-buttons{
 
@@ -378,7 +434,7 @@ nav a:hover::after{
     justify-content:center;
 }
 
-/* BUTTONS */
+/* BTN */
 
 .btn{
 
@@ -412,6 +468,7 @@ nav a:hover::after{
     inset:0;
 
     background:
+
     linear-gradient(
     120deg,
     transparent 0%,
@@ -433,17 +490,18 @@ nav a:hover::after{
 
     transform:translateY(-5px);
 
-    border-color:rgba(255,90,54,0.28);
+    border-color:rgba(255,90,54,0.30);
 
     box-shadow:
     0 0 30px rgba(255,90,54,0.14);
 }
 
-/* PRIMARY BUTTON */
+/* PRIMARY BTN */
 
 .primary{
 
     background:
+
     linear-gradient(
     135deg,
     var(--red2),
@@ -459,7 +517,7 @@ section{
     padding:110px 70px;
 }
 
-/* SECTION TITLE */
+/* TITLES */
 
 .section-title{
 
@@ -508,9 +566,10 @@ section{
 .about-card{
 
     background:
+
     linear-gradient(
     180deg,
-    rgba(255,255,255,0.045),
+    rgba(255,255,255,0.05),
     rgba(255,255,255,0.02)
     );
 
@@ -539,7 +598,7 @@ section{
 
     font-family:'Orbitron',sans-serif;
 
-    color:#ffb29f;
+    color:#ffe0d8;
 
     margin-bottom:24px;
 
@@ -578,9 +637,10 @@ section{
     border-radius:28px;
 
     background:
+
     linear-gradient(
     180deg,
-    rgba(255,255,255,0.045),
+    rgba(255,255,255,0.05),
     rgba(255,255,255,0.02)
     );
 
@@ -602,9 +662,10 @@ section{
     inset:0;
 
     background:
+
     linear-gradient(
     135deg,
-    rgba(255,90,54,0.10),
+    rgba(255,90,54,0.12),
     transparent
     );
 
@@ -617,7 +678,7 @@ section{
     opacity:1;
 }
 
-/* CARD SWEEP */
+/* CARD SHINE */
 
 .card::after{
 
@@ -628,6 +689,7 @@ section{
     inset:0;
 
     background:
+
     linear-gradient(
     120deg,
     transparent 0%,
@@ -662,7 +724,7 @@ section{
 
     font-family:'Orbitron',sans-serif;
 
-    color:#ffb8aa;
+    color:#fff1ec;
 
     margin-bottom:18px;
 
@@ -757,9 +819,10 @@ section{
     border-radius:30px;
 
     background:
+
     linear-gradient(
     180deg,
-    rgba(255,255,255,0.045),
+    rgba(255,255,255,0.05),
     rgba(255,255,255,0.02)
     );
 
@@ -851,6 +914,7 @@ footer{
 }
 
 </style>
+
 </head>
 
 <body>
@@ -858,7 +922,7 @@ footer{
 <div class="grid"></div>
 <div class="glow"></div>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 
 <nav>
 
@@ -890,23 +954,26 @@ IDEA • EXECUTION • SYSTEMS
 </h2>
 
 <p>
+
 BLANK IDEA is focused on engineering intelligent trading systems,
-execution infrastructure, automation environments,
+execution infrastructure,
+automation environments,
 and custom strategy implementation for modern financial markets.
 
-Transforming concepts into executable systems built
-for real-world market behavior.
+Transforming concepts into executable systems
+built for real-world market behavior.
+
 </p>
 
 <div class="hero-buttons">
 
-    <a href="#services" class="btn primary">
-    Explore Systems
-    </a>
+<a href="#services" class="btn primary">
+Explore Systems
+</a>
 
-    <a href="#contact" class="btn">
-    Connect
-    </a>
+<a href="#contact" class="btn">
+Connect
+</a>
 
 </div>
 
@@ -918,13 +985,18 @@ for real-world market behavior.
 
 <div class="section-title">
 
-    <h2>ABOUT US</h2>
+<h2>ABOUT US</h2>
 
-    <p>
-    BLANK IDEA operates as a system engineering and automation-focused environment
-    built around trading infrastructure, intelligent execution behavior,
-    risk architecture, and strategy implementation.
-    </p>
+<p>
+
+BLANK IDEA operates as a system engineering
+and automation-focused environment
+built around trading infrastructure,
+intelligent execution behavior,
+risk architecture,
+and strategy implementation.
+
+</p>
 
 </div>
 
@@ -932,34 +1004,41 @@ for real-world market behavior.
 
 <div class="about-card">
 
-    <h3>ENGINEERING APPROACH</h3>
+<h3>ENGINEERING APPROACH</h3>
 
-    <p>
-    Every system is developed with focus on execution realism,
-    broker adaptation, operational stability,
-    and market-aware behavior.
+<p>
 
-    The objective is not just automation —
-    but engineered execution capable of functioning
-    in live environments.
-    </p>
+Every system is developed
+with focus on execution realism,
+broker adaptation,
+operational stability,
+and market-aware behavior.
+
+The objective is not just automation —
+but engineered execution capable
+of functioning in live environments.
+
+</p>
 
 </div>
 
 <div class="about-card">
 
-    <h3>CORE DIRECTION</h3>
+<h3>CORE DIRECTION</h3>
 
-    <p>
-    Focused on MT5 infrastructure,
-    custom indicators,
-    strategy transformation,
-    execution logic,
-    risk containment systems,
-    and scalable automation frameworks
-    for Forex, Crypto,
-    and modern digital market ecosystems.
-    </p>
+<p>
+
+Focused on MT5 infrastructure,
+custom indicators,
+strategy transformation,
+execution logic,
+risk containment systems,
+and scalable automation frameworks
+for Forex,
+Crypto,
+and modern digital market ecosystems.
+
+</p>
 
 </div>
 
@@ -973,13 +1052,16 @@ for real-world market behavior.
 
 <div class="section-title">
 
-    <h2>SYSTEMS & SERVICES</h2>
+<h2>SYSTEMS & SERVICES</h2>
 
-    <p>
-    Specialized engineering solutions designed around automation,
-    execution logic,
-    and intelligent trading infrastructure.
-    </p>
+<p>
+
+Specialized engineering solutions
+designed around automation,
+execution logic,
+and intelligent trading infrastructure.
+
+</p>
 
 </div>
 
@@ -987,74 +1069,88 @@ for real-world market behavior.
 
 <div class="card">
 
-    <h3>MT5 EA DEVELOPMENT</h3>
+<h3>MT5 EA DEVELOPMENT</h3>
 
-    <p>
-    Custom Expert Advisor systems engineered for execution stability,
-    automation behavior,
-    and real-market operational handling.
-    </p>
+<p>
 
-</div>
+Custom Expert Advisor systems
+engineered for execution stability,
+automation behavior,
+and real-market operational handling.
 
-<div class="card">
-
-    <h3>STRATEGY AUTOMATION</h3>
-
-    <p>
-    Transforming trading concepts and manual workflows
-    into executable automated systems
-    with structured implementation.
-    </p>
+</p>
 
 </div>
 
 <div class="card">
 
-    <h3>INDICATOR ENGINEERING</h3>
+<h3>STRATEGY AUTOMATION</h3>
 
-    <p>
-    Development of custom indicators,
-    visualization tools,
-    and analytical market structure systems.
-    </p>
+<p>
 
-</div>
+Transforming trading concepts
+and manual workflows
+into executable automated systems
+with structured implementation.
 
-<div class="card">
-
-    <h3>EXECUTION SYSTEMS</h3>
-
-    <p>
-    Engineering intelligent execution environments
-    with adaptive behavior,
-    spread handling,
-    and broker-aware operational logic.
-    </p>
+</p>
 
 </div>
 
 <div class="card">
 
-    <h3>RISK INFRASTRUCTURE</h3>
+<h3>INDICATOR ENGINEERING</h3>
 
-    <p>
-    Structured drawdown handling,
-    exposure management,
-    and volatility-aware risk architecture.
-    </p>
+<p>
+
+Development of custom indicators,
+visualization tools,
+and analytical market structure systems.
+
+</p>
 
 </div>
 
 <div class="card">
 
-    <h3>FINTECH AUTOMATION</h3>
+<h3>EXECUTION SYSTEMS</h3>
 
-    <p>
-    Building intelligent automation systems
-    and execution-focused digital infrastructure
-    for modern market environments.
-    </p>
+<p>
+
+Engineering intelligent execution environments
+with adaptive behavior,
+spread handling,
+and broker-aware operational logic.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>RISK INFRASTRUCTURE</h3>
+
+<p>
+
+Structured drawdown handling,
+exposure management,
+and volatility-aware risk architecture.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>FINTECH AUTOMATION</h3>
+
+<p>
+
+Building intelligent automation systems
+and execution-focused digital infrastructure
+for modern market environments.
+
+</p>
 
 </div>
 
@@ -1068,36 +1164,38 @@ for real-world market behavior.
 
 <div class="section-title">
 
-    <h2>FOCUS METRICS</h2>
+<h2>FOCUS METRICS</h2>
 
-    <p>
-    Built around execution quality,
-    infrastructure reliability,
-    and engineered market behavior.
-    </p>
+<p>
+
+Built around execution quality,
+infrastructure reliability,
+and engineered market behavior.
+
+</p>
 
 </div>
 
 <div class="stats">
 
 <div class="stat">
-    <h3>AI</h3>
-    <p>Execution Intelligence</p>
+<h3>AI</h3>
+<p>Execution Intelligence</p>
 </div>
 
 <div class="stat">
-    <h3>MT5</h3>
-    <p>Automation Systems</p>
+<h3>MT5</h3>
+<p>Automation Systems</p>
 </div>
 
 <div class="stat">
-    <h3>FX</h3>
-    <p>Forex Infrastructure</p>
+<h3>FX</h3>
+<p>Forex Infrastructure</p>
 </div>
 
 <div class="stat">
-    <h3>24/7</h3>
-    <p>Operational Design</p>
+<h3>24/7</h3>
+<p>Operational Design</p>
 </div>
 
 </div>
@@ -1115,25 +1213,27 @@ CONNECT WITH BLANK IDEA
 </h3>
 
 <p>
+
 Interested in custom trading systems,
 execution infrastructure,
 automation environments,
 or intelligent market engineering solutions.
+
 </p>
 
 <div class="contact-links">
 
-    <a href="#" class="btn primary">
-    WhatsApp
-    </a>
+<a href="#" class="btn primary">
+WhatsApp
+</a>
 
-    <a href="#" class="btn">
-    Telegram
-    </a>
+<a href="#" class="btn">
+Telegram
+</a>
 
-    <a href="#" class="btn">
-    GitHub
-    </a>
+<a href="#" class="btn">
+GitHub
+</a>
 
 </div>
 
